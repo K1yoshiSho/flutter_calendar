@@ -9380,7 +9380,7 @@ class _ScheduleLabelPainter extends CustomPainter {
   void _addDisplayDateLabel(Canvas canvas, Size size) {
     /// Add the localized add new appointment text for display date view.
     final TextSpan span = TextSpan(
-      text: '_localizations',
+      text: scheduleViewSettings.placeholderText,
       style: themeData.textTheme.bodyMedium!
           .merge(scheduleViewSettings.weekHeaderSettings.weekTextStyle ?? scheduleViewSettings.placeholderTextStyle),
     );

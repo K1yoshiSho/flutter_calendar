@@ -53,8 +53,8 @@ class ScheduleViewSettings with Diagnosticable {
       this.monthHeaderSettings = const MonthHeaderSettings(),
       this.weekHeaderSettings = const WeekHeaderSettings(),
       this.dayHeaderSettings = const DayHeaderSettings(),
-      this.placeholderTextStyle =
-          const TextStyle(color: Colors.grey, fontSize: 15)})
+      this.placeholderText = 'No events',
+      this.placeholderTextStyle = const TextStyle(color: Colors.grey, fontSize: 15)})
       : assert(appointmentItemHeight >= -1);
 
   /// Sets the style to customize month label in [SfCalendar] schedule view.
@@ -249,6 +249,7 @@ class ScheduleViewSettings with Diagnosticable {
   ///  }
   ///
   ///
+  final String placeholderText;
   final TextStyle placeholderTextStyle;
 
   /// The height for each appointment view to layout within this in schedule
@@ -339,32 +340,19 @@ class ScheduleViewSettings with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(
-        monthHeaderSettings.toDiagnosticsNode(name: 'monthHeaderSettings'));
-    properties
-        .add(weekHeaderSettings.toDiagnosticsNode(name: 'weekHeaderSettings'));
-    properties
-        .add(dayHeaderSettings.toDiagnosticsNode(name: 'dayHeaderSettings'));
-    properties.add(DiagnosticsProperty<TextStyle>(
-        'appointmentTextStyle', appointmentTextStyle));
-    properties
-        .add(DoubleProperty('appointmentItemHeight', appointmentItemHeight));
-    properties.add(DiagnosticsProperty<bool>(
-        'hideEmptyScheduleWeek', hideEmptyScheduleWeek));
-    properties.add(DiagnosticsProperty<TextStyle>(
-        'placeholderTextStyle', placeholderTextStyle));
+    properties.add(monthHeaderSettings.toDiagnosticsNode(name: 'monthHeaderSettings'));
+    properties.add(weekHeaderSettings.toDiagnosticsNode(name: 'weekHeaderSettings'));
+    properties.add(dayHeaderSettings.toDiagnosticsNode(name: 'dayHeaderSettings'));
+    properties.add(DiagnosticsProperty<TextStyle>('appointmentTextStyle', appointmentTextStyle));
+    properties.add(DoubleProperty('appointmentItemHeight', appointmentItemHeight));
+    properties.add(DiagnosticsProperty<bool>('hideEmptyScheduleWeek', hideEmptyScheduleWeek));
+    properties.add(DiagnosticsProperty<TextStyle>('placeholderTextStyle', placeholderTextStyle));
   }
 
   @override
   int get hashCode {
-    return Object.hash(
-        appointmentTextStyle,
-        appointmentItemHeight,
-        hideEmptyScheduleWeek,
-        monthHeaderSettings,
-        weekHeaderSettings,
-        dayHeaderSettings,
-        placeholderTextStyle);
+    return Object.hash(appointmentTextStyle, appointmentItemHeight, hideEmptyScheduleWeek, monthHeaderSettings,
+        weekHeaderSettings, dayHeaderSettings, placeholderTextStyle);
   }
 }
 
@@ -619,8 +607,7 @@ class MonthHeaderSettings with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty<TextStyle>('monthTextStyle', monthTextStyle));
+    properties.add(DiagnosticsProperty<TextStyle>('monthTextStyle', monthTextStyle));
     properties.add(DoubleProperty('height', height));
     properties.add(EnumProperty<TextAlign>('textAlign', textAlign));
     properties.add(ColorProperty('backgroundColor', backgroundColor));
@@ -629,8 +616,7 @@ class MonthHeaderSettings with Diagnosticable {
 
   @override
   int get hashCode {
-    return Object.hash(
-        monthFormat, height, textAlign, backgroundColor, monthTextStyle);
+    return Object.hash(monthFormat, height, textAlign, backgroundColor, monthTextStyle);
   }
 }
 
@@ -938,8 +924,7 @@ class WeekHeaderSettings with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty<TextStyle>('weekTextStyle', weekTextStyle));
+    properties.add(DiagnosticsProperty<TextStyle>('weekTextStyle', weekTextStyle));
     properties.add(DoubleProperty('height', height));
     properties.add(EnumProperty<TextAlign>('textAlign', textAlign));
     properties.add(ColorProperty('backgroundColor', backgroundColor));
@@ -949,8 +934,7 @@ class WeekHeaderSettings with Diagnosticable {
 
   @override
   int get hashCode {
-    return Object.hash(startDateFormat, endDateFormat, height, textAlign,
-        backgroundColor, weekTextStyle);
+    return Object.hash(startDateFormat, endDateFormat, height, textAlign, backgroundColor, weekTextStyle);
   }
 }
 
@@ -1000,11 +984,7 @@ class DayHeaderSettings with Diagnosticable {
   ///
   /// The properties allows to customize the day header in schedule view  of
   /// [SfCalendar].
-  const DayHeaderSettings(
-      {this.dayFormat = 'EEE',
-      this.width = -1,
-      this.dayTextStyle,
-      this.dateTextStyle})
+  const DayHeaderSettings({this.dayFormat = 'EEE', this.width = -1, this.dayTextStyle, this.dateTextStyle})
       : assert(width >= -1);
 
   /// Formats the day text in the day label of [SfCalendar] schedule view.
@@ -1173,10 +1153,8 @@ class DayHeaderSettings with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty<TextStyle>('dayTextStyle', dayTextStyle));
-    properties
-        .add(DiagnosticsProperty<TextStyle>('dateTextStyle', dateTextStyle));
+    properties.add(DiagnosticsProperty<TextStyle>('dayTextStyle', dayTextStyle));
+    properties.add(DiagnosticsProperty<TextStyle>('dateTextStyle', dateTextStyle));
     properties.add(DoubleProperty('width', width));
     properties.add(StringProperty('dayFormat', dayFormat));
   }

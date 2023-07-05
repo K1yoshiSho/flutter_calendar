@@ -35,18 +35,6 @@ class _LoadMoreCalendarState extends State<LoadMoreCalendar> {
   final _MeetingDataSource _events = _MeetingDataSource(<Appointment>[]);
   final CalendarController _calendarController = CalendarController();
 
-  // final List<CalendarView> _allowedViews = <CalendarView>[
-  //   CalendarView.day,
-  //   CalendarView.week,
-  //   CalendarView.workWeek,
-  //   CalendarView.month,
-  //   CalendarView.schedule,
-  //   CalendarView.timelineDay,
-  //   CalendarView.timelineWeek,
-  //   CalendarView.timelineWorkWeek,
-  //   CalendarView.timelineMonth,
-  // ];
-
   @override
   void initState() {
     _calendarController.view = CalendarView.schedule;
@@ -126,6 +114,12 @@ class _LoadMoreCalendarState extends State<LoadMoreCalendar> {
         controller: calendarController,
         dataSource: calendarDataSource,
         view: CalendarView.schedule,
+        showDatePickerButton: true,
+        showCurrentTimeIndicator: true,
+        showNavigationArrow: false,
+        showTodayButton: true,
+        showWeekNumber: true,
+
         // allowedViews: _allowedViews,
         loadMoreWidgetBuilder: (BuildContext context, LoadMoreCallback loadMoreAppointments) {
           return FutureBuilder<void>(
