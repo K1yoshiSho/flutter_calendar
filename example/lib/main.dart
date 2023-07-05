@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar/calendar.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +13,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('ru'),
+      ],
+      locale: Locale('ru'),
       theme: ThemeData(
         useMaterial3: true,
         primarySwatch: Colors.blue,
@@ -115,11 +125,46 @@ class _LoadMoreCalendarState extends State<LoadMoreCalendar> {
         dataSource: calendarDataSource,
         view: CalendarView.schedule,
         showDatePickerButton: true,
+        
         showCurrentTimeIndicator: true,
         showNavigationArrow: false,
-        showTodayButton: true,
+        showTodayButton: false,
         showWeekNumber: true,
-
+        headerStyle: CalendarHeaderStyle(
+          textStyle: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        weekNumberStyle: WeekNumberStyle(
+          textStyle: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        scheduleViewSettings: ScheduleViewSettings(
+          monthHeaderSettings: MonthHeaderSettings(),
+          weekHeaderSettings: WeekHeaderSettings(
+            height: 25,
+            weekTextStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          dayHeaderSettings: DayHeaderSettings(
+            dateTextStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+            dayTextStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
         // allowedViews: _allowedViews,
         loadMoreWidgetBuilder: (BuildContext context, LoadMoreCallback loadMoreAppointments) {
           return FutureBuilder<void>(

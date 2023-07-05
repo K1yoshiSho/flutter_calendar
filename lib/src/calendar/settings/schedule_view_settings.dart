@@ -403,7 +403,7 @@ class MonthHeaderSettings with Diagnosticable {
   /// The properties allows to customize the month header in schedule view  of
   /// [SfCalendar].
   const MonthHeaderSettings(
-      {this.monthFormat = 'MMMM yyyy',
+      {this.monthFormat = 'LLLL yyyy',
       this.height = 150,
       this.textAlign = TextAlign.start,
       this.backgroundColor = const Color.fromRGBO(17, 178, 199, 1),

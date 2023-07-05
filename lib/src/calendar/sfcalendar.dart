@@ -7789,7 +7789,6 @@ class _SfCalendarState extends State<SfCalendar> with SingleTickerProviderStateM
                   minDate: widget.minDate,
                   maxDate: widget.maxDate,
                   selectionColor: todayTextColor,
-                  //// For disabling the picker dates based on the calendar non working days.
                   selectableDayPredicate: _view != CalendarView.workWeek && _view != CalendarView.timelineWorkWeek
                       ? null
                       : (DateTime dateTime) {
@@ -8505,7 +8504,6 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
       if (useMobilePlatformUI) {
         maxHeaderHeight = maxHeaderHeight != 0 && maxHeaderHeight <= widget.height ? maxHeaderHeight : widget.height;
 
-        /// Render allowed views icon on mobile view.
         calendarViewIcon = _getCalendarViewWidget(
             headerBackgroundColor,
             useMobilePlatformUI,
@@ -8681,9 +8679,8 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
             child: Material(
                 color: headerBackgroundColor,
                 child: InkWell(
-                  //// set splash color as transparent when header does not have
-                  // date piker.
                   splashColor: splashColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   highlightColor: splashColor,
                   hoverColor: splashColor,
                   splashFactory: _CustomSplashFactory(),
@@ -8700,43 +8697,47 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
                     widget.headerLongPressCallback(calendarViewWidth + dividerWidth + todayIconWidth);
                   },
                   child: Container(
-                      clipBehavior: Clip.antiAlias,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                      ),
-                      width: isCenterAlignment && headerWidth > 200 ? 200 : headerWidth,
-                      height: headerHeight,
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Row(
-                          mainAxisAlignment: getAlignmentFromTextAlign(),
-                          children: widget.showDatePickerButton
-                              ? <Widget>[
-                                  Flexible(
-                                      child: Text(headerString,
-                                          style: headerTextStyle,
-                                          maxLines: 1,
-                                          semanticsLabel:
-                                              // ignore: lines_longer_than_80_chars
-                                              '$headerString ${widget.isPickerShown ? 'hide date picker' : 'show date picker'}',
-                                          overflow: TextOverflow.clip,
-                                          softWrap: false,
-                                          textDirection: TextDirection.ltr)),
-                                  Icon(
-                                    widget.isPickerShown ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                                    color: arrowColor,
-                                    size: headerTextStyle.fontSize ?? 14,
-                                  ),
-                                ]
-                              : <Widget>[
-                                  Flexible(
-                                      child: Text(headerString,
-                                          style: headerTextStyle,
-                                          maxLines: 1,
-                                          overflow: TextOverflow.clip,
-                                          softWrap: false,
-                                          textDirection: TextDirection.ltr))
-                                ])),
+                    clipBehavior: Clip.antiAlias,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    width: isCenterAlignment && headerWidth > 200 ? 200 : headerWidth,
+                    height: headerHeight,
+                    alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Row(
+                      mainAxisAlignment: getAlignmentFromTextAlign(),
+                      children: widget.showDatePickerButton
+                          ? <Widget>[
+                              Flexible(
+                                  child: Text(headerString.capitalize(),
+                                      style: headerTextStyle,
+                                      maxLines: 1,
+                                      semanticsLabel:
+                                          '$headerString ${widget.isPickerShown ? 'hide date picker' : 'show date picker'}',
+                                      overflow: TextOverflow.clip,
+                                      softWrap: false,
+                                      textDirection: TextDirection.ltr)),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Icon(
+                                  widget.isPickerShown ? Icons.expand_less_rounded : Icons.expand_more_rounded,
+                                  color: arrowColor,
+                                  size: headerTextStyle.fontSize ?? 14,
+                                ),
+                              ),
+                            ]
+                          : <Widget>[
+                              Flexible(
+                                  child: Text(headerString,
+                                      style: headerTextStyle,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.clip,
+                                      softWrap: false,
+                                      textDirection: TextDirection.ltr))
+                            ],
+                    ),
+                  ),
                 )),
           )
         : Container(
@@ -8935,8 +8936,10 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
             padding: EdgeInsets.all(useMobilePlatformUI ? 2 : 4),
             child: Material(
                 color: headerBackgroundColor,
+                borderRadius: BorderRadius.circular(4),
                 child: InkWell(
                   splashColor: todaySplashColor,
+                  borderRadius: BorderRadius.circular(8),
                   highlightColor: todaySplashColor,
                   hoverColor: todaySplashColor,
                   splashFactory: _CustomSplashFactory(),
@@ -9421,7 +9424,7 @@ class _ScheduleLabelPainter extends CustomPainter {
   void _addWeekLabel(Canvas canvas, Size size) {
     double xPosition = 0;
     const double yPosition = 0;
-    final String startDateFormat = scheduleViewSettings.weekHeaderSettings.startDateFormat ?? 'MMM dd';
+    final String startDateFormat = scheduleViewSettings.weekHeaderSettings.startDateFormat ?? 'LLLL dd';
     String? endDateFormat = scheduleViewSettings.weekHeaderSettings.endDateFormat;
     if (startDate.month == endDate!.month && endDateFormat == null) {
       endDateFormat = 'dd';
@@ -9431,7 +9434,7 @@ class _ScheduleLabelPainter extends CustomPainter {
     final String firstDate = DateFormat(startDateFormat, locale).format(startDate);
     final String lastDate = DateFormat(endDateFormat, locale).format(endDate!);
     final TextSpan span = TextSpan(
-      text: '$firstDate - $lastDate',
+      text: '$firstDate - $lastDate'.capitalize(),
       style: themeData.textTheme.bodyMedium!
           .copyWith(color: Colors.grey, fontSize: 15)
           .merge(scheduleViewSettings.weekHeaderSettings.weekTextStyle),
@@ -9472,7 +9475,7 @@ class _ScheduleLabelPainter extends CustomPainter {
     const double yPosition = 0;
     final String monthFormat = scheduleViewSettings.monthHeaderSettings.monthFormat;
     final TextSpan span = TextSpan(
-      text: DateFormat(monthFormat, locale).format(startDate),
+      text: DateFormat(monthFormat, locale).format(startDate).capitalize(),
       style: themeData.textTheme.bodyLarge!
           .copyWith(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w400)
           .merge(scheduleViewSettings.monthHeaderSettings.monthTextStyle),
@@ -10036,7 +10039,7 @@ class _AgendaDateTimePainter extends CustomPainter {
     final String dayTextFormat =
         scheduleViewSettings != null ? scheduleViewSettings!.dayHeaderSettings.dayFormat : 'EEE';
     TextSpan span =
-        TextSpan(text: DateFormat(dayTextFormat, locale).format(selectedDate!).toUpperCase(), style: dayTextStyle);
+        TextSpan(text: DateFormat(dayTextFormat, locale).format(selectedDate!).capitalize(), style: dayTextStyle);
     _updateTextPainter(span);
 
     _textPainter.layout(maxWidth: size.width);
@@ -10092,7 +10095,7 @@ class _AgendaDateTimePainter extends CustomPainter {
                 : 'MMM, ${scheduleViewSettings!.dayHeaderSettings.dayFormat}',
             locale)
         .format(selectedDate!)
-        .toUpperCase();
+        .capitalize();
 
     //// Draw Weekday
     TextSpan span = TextSpan(text: maxWidthDateText, style: dateTextStyle);
@@ -10302,4 +10305,14 @@ double _getAgendaViewDayLabelWidth(ScheduleViewSettings scheduleViewSettings, bo
   }
 
   return scheduleViewSettings.dayHeaderSettings.width;
+}
+
+extension StringExtension on String {
+  String capitalize() {
+    if (isEmpty) {
+      return this;
+    }
+
+    return '${this[0].toUpperCase()}${substring(1)}';
+  }
 }

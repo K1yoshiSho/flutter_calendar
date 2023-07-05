@@ -1,4 +1,4 @@
-#Wed Jul 05 16:20:05 ALMT 2023
+#Wed Jul 05 17:42:57 ALMT 2023
 base.0=D\:\\Packages\\flutter_calendar\\example\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
