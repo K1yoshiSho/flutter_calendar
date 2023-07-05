@@ -1,0 +1,28 @@
+name: example
+description: Syncfusion calendar example.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_calendar:
+    path: ../
+  workspace_core:
+    git:
+      url: https://github.com/K1yoshiSho/workspace_flutter_core.git
+      ref: main
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true

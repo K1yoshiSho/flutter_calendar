@@ -1,0 +1,12 @@
+com.example.example.app-jetified-window-1.0.0-beta04-0 C:\Users\yelam\.gradle\caches\transforms-3\6536a52ac3f71fa00116215b0f88bc0a\transformed\jetified-window-1.0.0-beta04\res
+com.example.example.app-jetified-annotation-experimental-1.1.0-1 C:\Users\yelam\.gradle\caches\transforms-3\7ea4a7eb9add39b6fe2ccc6ac5927c2e\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.example.app-core-1.6.0-2 C:\Users\yelam\.gradle\caches\transforms-3\d342c4c075d67565cde01eca1423b31c\transformed\core-1.6.0\res
+com.example.example.app-jetified-window-java-1.0.0-beta04-3 C:\Users\yelam\.gradle\caches\transforms-3\f7496e684d5684dedb7561e792a4c972\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.example.app-debug-4 D:\Packages\flutter_calendar\example\android\app\src\debug\res
+com.example.example.app-main-5 D:\Packages\flutter_calendar\example\android\app\src\main\res
+com.example.example.app-pngs-6 D:\Packages\flutter_calendar\example\build\app\generated\res\pngs\debug
+com.example.example.app-resValues-7 D:\Packages\flutter_calendar\example\build\app\generated\res\resValues\debug
+com.example.example.app-rs-8 D:\Packages\flutter_calendar\example\build\app\generated\res\rs\debug
+com.example.example.app-mergeDebugResources-9 D:\Packages\flutter_calendar\example\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.example.app-mergeDebugResources-10 D:\Packages\flutter_calendar\example\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.example.app-merged_res-11 D:\Packages\flutter_calendar\example\build\app\intermediates\merged_res\debug

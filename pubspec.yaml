@@ -1,0 +1,52 @@
+name: flutter_calendar
+description: The Flutter Calendar widget has nine built-in configurable views that provide basic functionalities for scheduling and representing appointments/events efficiently.
+version: 22.1.37
+homepage: https://github.com/syncfusion/flutter-examples
+
+screenshots:
+  - description: 'This screenshot shows the week view with appointment.'
+    path: screenshots/flutter-calendar-week-appointments.jpg
+  - description: 'This screenshot shows the month view with appointment.'
+    path: screenshots/flutter-calendar-month-appointments.jpg
+  - description: 'This screenshot shows the timeline month view with appointment.'
+    path: screenshots/flutter-calendar-timeline-month-appointments.png
+  - description: 'This screenshot shows the special regions.'
+    path: screenshots/flutter-calendar-special-time-regions.png
+  - description: 'This screenshot shows the recurrence appointment on view.'
+    path: screenshots/flutter-calendar-recurring-appointments.jpg
+  - description: 'This screenshot shows the appointment view builder.'
+    path: screenshots/flutter-calendar-appointment-view-builder.png
+  - description: 'This screenshot shows the schedule view.'
+    path: screenshots/flutter-calendar-schedule-view.png
+  - description: 'This screenshot shows the resource view.'
+    path: screenshots/flutter-calendar-resource-view.png
+  - description: 'This screenshot shows the appointment drag-and-drop and resize.'
+    path: screenshots/flutter-calendar-resize-drag-drop.gif
+  - description: 'This screenshot shows the quick navigation.'
+    path: screenshots/flutter-calendar-quick-navigation.png
+
+environment:
+  sdk: '>=3.0.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  timezone: 0.9.2
+  workspace_core:
+    git:
+      url: https://github.com/K1yoshiSho/workspace_flutter_core.git
+      ref: main
+  flutter_datepicker:
+    git:
+      url: https://github.com/K1yoshiSho/flutter_datepicker.git
+      ref: main
+    
+      
+      
+      
+
+  intl: ^0.18.0
+
+flutter:
+  assets:
+    - packages/timezone/data/latest_all.tzf

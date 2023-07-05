@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.example.app-mergeDebugResources-9:/values-sq/values-sq.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\yelam\\.gradle\\caches\\transforms-3\\d342c4c075d67565cde01eca1423b31c\\transformed\\core-1.6.0\\res\\values-sq\\values-sq.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
