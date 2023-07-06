@@ -27,7 +27,7 @@ export 'src/calendar/settings/view_header_style.dart';
 export 'src/calendar/settings/week_number_style.dart';
 export 'src/calendar/sfcalendar.dart';
 
-String capitalize(String value) {
+String capitalizeCalendar(String value) {
   if (value.isEmpty) {
     return value;
   }
