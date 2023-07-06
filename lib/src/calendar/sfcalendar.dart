@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_calendar/calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:workspace_core/core.dart';
@@ -14,28 +15,12 @@ import 'package:workspace_core/theme.dart';
 import 'package:flutter_datepicker/datepicker.dart';
 import 'package:timezone/timezone.dart';
 
-import 'appointment_engine/appointment.dart';
 import 'appointment_engine/appointment_helper.dart';
-import 'appointment_engine/calendar_datasource.dart';
 import 'appointment_engine/recurrence_helper.dart';
-import 'appointment_engine/recurrence_properties.dart';
 import 'appointment_layout/agenda_view_layout.dart';
-import 'common/calendar_controller.dart';
 import 'common/calendar_view_helper.dart';
 import 'common/date_time_engine.dart';
-import 'common/enums.dart';
-import 'common/event_args.dart';
-import 'resource_view/calendar_resource.dart';
 import 'resource_view/resource_view.dart';
-import 'settings/drag_and_drop_settings.dart';
-import 'settings/header_style.dart';
-import 'settings/month_view_settings.dart';
-import 'settings/resource_view_settings.dart';
-import 'settings/schedule_view_settings.dart';
-import 'settings/time_region.dart';
-import 'settings/time_slot_view_settings.dart';
-import 'settings/view_header_style.dart';
-import 'settings/week_number_style.dart';
 import 'views/calendar_view.dart';
 
 /// Specifies the unconfirmed ripple animation duration used on custom splash.
@@ -10305,14 +10290,4 @@ double _getAgendaViewDayLabelWidth(ScheduleViewSettings scheduleViewSettings, bo
   }
 
   return scheduleViewSettings.dayHeaderSettings.width;
-}
-
-extension StringExtension on String {
-  String capitalize() {
-    if (isEmpty) {
-      return this;
-    }
-
-    return '${this[0].toUpperCase()}${substring(1)}';
-  }
 }

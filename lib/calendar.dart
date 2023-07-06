@@ -26,3 +26,13 @@ export 'src/calendar/settings/time_slot_view_settings.dart';
 export 'src/calendar/settings/view_header_style.dart';
 export 'src/calendar/settings/week_number_style.dart';
 export 'src/calendar/sfcalendar.dart';
+
+extension StringExtension on String {
+  String capitalize() {
+    if (isEmpty) {
+      return this;
+    }
+
+    return '${this[0].toUpperCase()}${substring(1)}';
+  }
+}
