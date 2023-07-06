@@ -27,12 +27,10 @@ export 'src/calendar/settings/view_header_style.dart';
 export 'src/calendar/settings/week_number_style.dart';
 export 'src/calendar/sfcalendar.dart';
 
-extension CalendarCapitalizeExtension on String {
-  String capitalize() {
-    if (isEmpty) {
-      return this;
-    }
-
-    return '${this[0].toUpperCase()}${substring(1)}';
+String capitalize(String value) {
+  if (value.isEmpty) {
+    return value;
   }
+
+  return '${value[0].toUpperCase()}${value.substring(1)}';
 }

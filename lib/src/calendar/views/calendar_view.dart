@@ -9544,7 +9544,7 @@ class _ViewHeaderViewPainter extends CustomPainter {
 
     for (int i = 0; i < DateTime.daysPerWeek; i++) {
       final DateTime currentDate = visibleDates[i];
-      String dayText = DateFormat(monthViewSettings.dayFormat, locale).format(currentDate).capitalize();
+      String dayText = capitalize(DateFormat(monthViewSettings.dayFormat, locale).format(currentDate));
 
       dayText = _updateViewHeaderFormat(monthViewSettings.dayFormat, dayText);
 
@@ -9623,7 +9623,7 @@ class _ViewHeaderViewPainter extends CustomPainter {
     for (int i = 0; i < visibleDatesLength; i++) {
       final DateTime currentDate = visibleDates[i];
 
-      String dayText = DateFormat(timeSlotViewSettings.dayFormat, locale).format(currentDate).capitalize();
+      String dayText = capitalize(DateFormat(timeSlotViewSettings.dayFormat, locale).format(currentDate));
 
       dayText = _updateViewHeaderFormat(timeSlotViewSettings.dayFormat, dayText);
 
@@ -9907,7 +9907,7 @@ class _ViewHeaderViewPainter extends CustomPainter {
       semanticsBuilder.add(CustomPainterSemantics(
         rect: Rect.fromLTWH(left, top, cellWidth, size.height),
         properties: SemanticsProperties(
-          label: DateFormat('EEEEE').format(visibleDates[i]).capitalize(),
+          label: capitalize(DateFormat('EEEEE').format(visibleDates[i])),
           textDirection: TextDirection.ltr,
         ),
       ));

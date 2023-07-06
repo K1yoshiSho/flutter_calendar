@@ -8695,7 +8695,7 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
                       children: widget.showDatePickerButton
                           ? <Widget>[
                               Flexible(
-                                  child: Text(headerString.capitalize(),
+                                  child: Text(capitalize(headerString),
                                       style: headerTextStyle,
                                       maxLines: 1,
                                       semanticsLabel:
@@ -9419,7 +9419,7 @@ class _ScheduleLabelPainter extends CustomPainter {
     final String firstDate = DateFormat(startDateFormat, locale).format(startDate);
     final String lastDate = DateFormat(endDateFormat, locale).format(endDate!);
     final TextSpan span = TextSpan(
-      text: '$firstDate - $lastDate'.capitalize(),
+      text: capitalize('$firstDate - $lastDate'),
       style: themeData.textTheme.bodyMedium!
           .copyWith(color: Colors.grey, fontSize: 15)
           .merge(scheduleViewSettings.weekHeaderSettings.weekTextStyle),
@@ -9460,7 +9460,7 @@ class _ScheduleLabelPainter extends CustomPainter {
     const double yPosition = 0;
     final String monthFormat = scheduleViewSettings.monthHeaderSettings.monthFormat;
     final TextSpan span = TextSpan(
-      text: DateFormat(monthFormat, locale).format(startDate).capitalize(),
+      text: capitalize(DateFormat(monthFormat, locale).format(startDate)),
       style: themeData.textTheme.bodyLarge!
           .copyWith(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w400)
           .merge(scheduleViewSettings.monthHeaderSettings.monthTextStyle),
@@ -10024,7 +10024,7 @@ class _AgendaDateTimePainter extends CustomPainter {
     final String dayTextFormat =
         scheduleViewSettings != null ? scheduleViewSettings!.dayHeaderSettings.dayFormat : 'EEE';
     TextSpan span =
-        TextSpan(text: DateFormat(dayTextFormat, locale).format(selectedDate!).capitalize(), style: dayTextStyle);
+        TextSpan(text: capitalize(DateFormat(dayTextFormat, locale).format(selectedDate!)), style: dayTextStyle);
     _updateTextPainter(span);
 
     _textPainter.layout(maxWidth: size.width);
@@ -10074,13 +10074,13 @@ class _AgendaDateTimePainter extends CustomPainter {
 
     /// Calculate the date text maximum width value.
     const String maxWidthDateText = '30';
-    final String dayText = DateFormat(
+    final String dayText = capitalize(DateFormat(
             isRTL
                 ? '${scheduleViewSettings!.dayHeaderSettings.dayFormat}, MMM'
                 : 'MMM, ${scheduleViewSettings!.dayHeaderSettings.dayFormat}',
             locale)
         .format(selectedDate!)
-        .capitalize();
+        );
 
     //// Draw Weekday
     TextSpan span = TextSpan(text: maxWidthDateText, style: dateTextStyle);
