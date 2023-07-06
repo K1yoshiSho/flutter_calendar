@@ -27,7 +27,7 @@ export 'src/calendar/settings/view_header_style.dart';
 export 'src/calendar/settings/week_number_style.dart';
 export 'src/calendar/sfcalendar.dart';
 
-extension StringExtension on String {
+extension CalendarCapitalizeExtension on String {
   String capitalize() {
     if (isEmpty) {
       return this;
