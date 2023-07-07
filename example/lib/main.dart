@@ -125,7 +125,6 @@ class _LoadMoreCalendarState extends State<LoadMoreCalendar> {
         dataSource: calendarDataSource,
         view: CalendarView.schedule,
         showDatePickerButton: true,
-        
         showCurrentTimeIndicator: true,
         showNavigationArrow: false,
         showTodayButton: false,

@@ -1,0 +1,11 @@
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/icudtl.dat
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/flutter_windows.dll
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/AssetManifest.bin
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/NOTICES.Z
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/packages/timezone/data/latest_all.tzf
+D:/Packages/flutter_calendar/example/build/windows/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag
