@@ -68,16 +68,16 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "22.1.42"
+    version: "22.1.44"
   flutter_datepicker:
     dependency: transitive
     description:
       path: "."
       ref: main
-      resolved-ref: "8061ffa0a22a9938ac19be2b41210b2750250d16"
+      resolved-ref: a34aaee3d861e31c3987946e3f0001ae3ef8a679
       url: "https://github.com/K1yoshiSho/flutter_datepicker.git"
     source: git
-    version: "22.1.37"
+    version: "22.1.42"
   flutter_localizations:
     dependency: "direct main"
     description: flutter

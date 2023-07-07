@@ -8665,7 +8665,7 @@ class _CalendarHeaderViewState extends State<_CalendarHeaderView> {
                 color: headerBackgroundColor,
                 child: InkWell(
                   splashColor: splashColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
                   highlightColor: splashColor,
                   hoverColor: splashColor,
                   splashFactory: _CustomSplashFactory(),
@@ -10023,8 +10023,8 @@ class _AgendaDateTimePainter extends CustomPainter {
     //// Draw Weekday
     final String dayTextFormat =
         scheduleViewSettings != null ? scheduleViewSettings!.dayHeaderSettings.dayFormat : 'EEE';
-    TextSpan span =
-        TextSpan(text: capitalizeCalendar(DateFormat(dayTextFormat, locale).format(selectedDate!)), style: dayTextStyle);
+    TextSpan span = TextSpan(
+        text: capitalizeCalendar(DateFormat(dayTextFormat, locale).format(selectedDate!)), style: dayTextStyle);
     _updateTextPainter(span);
 
     _textPainter.layout(maxWidth: size.width);
@@ -10079,8 +10079,7 @@ class _AgendaDateTimePainter extends CustomPainter {
                 ? '${scheduleViewSettings!.dayHeaderSettings.dayFormat}, MMM'
                 : 'MMM, ${scheduleViewSettings!.dayHeaderSettings.dayFormat}',
             locale)
-        .format(selectedDate!)
-        );
+        .format(selectedDate!));
 
     //// Draw Weekday
     TextSpan span = TextSpan(text: maxWidthDateText, style: dateTextStyle);

@@ -1,0 +1,10 @@
+^D:\PACKAGES\FLUTTER_CALENDAR\EXAMPLE\BUILD\WINDOWS\CMAKEFILES\8D5C0A7E83124A49D862D316EF20F143\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Packages/flutter_calendar/example/windows -BD:/Packages/flutter_calendar/example/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Packages/flutter_calendar/example/build/windows/example.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
